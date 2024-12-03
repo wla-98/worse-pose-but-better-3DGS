@@ -16,11 +16,11 @@ def read_pointcloud_from_file(filename):
 
             
             # Extract X, Y, Z, R, G, B
-            x, y, z = map(float, tokens[0:3])
-            r, g, b = map(int, tokens[3:6])
+            x, y, z = map(float, tokens[1:4])
+            r, g, b = map(int, tokens[4:7])
 
             points.append([x, y, z])
-            colors.append([r / 255.0, g / 255.0, b / 255.0])  # Normalize colors to [0, 1]
+            colors.append([b/ 255.0, g / 255.0, r / 255.0])  # Normalize colors to [0, 1]
 
     return np.array(points), np.array(colors)
 
@@ -37,7 +37,7 @@ def visualize_pointcloud(points, colors):
 
 if __name__ == "__main__":
     # Path to the point cloud file
-    filename = "/home/wang/catkin_ws/src/wla_orb/orb-output/20241127_151608/points3D-keyframe.txt"  # Replace with your file path
+    filename = "/home/wang/catkin_ws/src/3dgs-dataset/kitti/sparse-keyframe/0/points3D.txt"  # Replace with your file path
     
     # Read the point cloud data
     points, colors = read_pointcloud_from_file(filename)
