@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider Comparison</title>
+    <style>
+        /* 容器样式 */
+        .container {
+            position: relative;
+            width: 1300px;
+            height: 800px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        /* 两张图片样式 */
+        .container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 分割条样式 */
+        .slider {
+            position: absolute;
+            top: 0;
+            left: 50%; /* 初始位置在中间 */
+            width: 5px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            cursor: ew-resize;
+        }
+
+        /* 左图初始剪裁区域 */
+        .before {
+            clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+        }
+
+        /* 右图初始剪裁区域 */
+        .after {
+            clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 左侧的图像 -->
+        <img src="Cap-nice.png" class="before" alt="Cap Nice">
+        <!-- 右侧的图像 -->
+        <img src="Cap-bad.png" class="after" alt="Cap Bad">
+        <!-- 分割条 -->
+        <div class="slider"></div>
+    </div>
+
+    <script>
+        // 获取 DOM 元素
+        const container = document.querySelector('.container');
+        const before = document.querySelector('.before');
+        const after = document.querySelector('.after');
+        const slider = document.querySelector('.slider');
+
+        // 鼠标移动事件
+        container.addEventListener('mousemove', (e) => {
+            const rect = container.getBoundingClientRect();
+            const x = e.clientX - rect.left; // 鼠标相对于容器的 x 坐标
+            const width = rect.width; // 容器宽度
+            const percentage = Math.max(0, Math.min(1, x / width)); // 计算滑动百分比
+
+            // 更新左侧图片的显示区域
+            before.style.clipPath = `polygon(0 0, ${percentage * 100}% 0, ${percentage * 100}% 100%, 0 100%)`;
+            // 更新右侧图片的显示区域
+            after.style.clipPath = `polygon(${percentage * 100}% 0, 100% 0, 100% 100%, ${percentage * 100}% 100%)`;
+            // 更新分割条的位置
+            slider.style.left = `${percentage * 100}%`;
+        });
+    </script>
+</body>
+
+</html>
