@@ -24,7 +24,7 @@ To set up the environment for this project, you need to install several componen
 
 ### MONOGS
 - **Link**: [https://github.com/muskie82/MonoGS](https://github.com/muskie82/MonoGS)
-- **Description**: [Briefly mention what MONOGS is and how it relates to the project. For example, it could be a specific module or an extension that builds upon other components for achieving a particular functionality in our project.] Go to its GitHub page to find the exact installation steps and configuration details required for integrating it with our project.
+- **Description**: The MONOGS project implements a dense SLAM system based on 3D Gaussian Splatting, which won the highlight and best demo award at CVPR 2024. It for the first time demonstrates a monocular SLAM method solely relying on 3D Gaussian Splatting, mainly utilizing the gradient propagation with camera poses.
 
 Please follow the installation guides provided by each respective link carefully to ensure a smooth setup of the project environment.
 
