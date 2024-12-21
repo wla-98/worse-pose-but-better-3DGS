@@ -43,3 +43,6 @@ The project has been developed and tested in a specific environment setup. We ar
       mkdir -p "my_ros_ws"/src
       cd "my_ros_ws"
       catkin init
+      
+
+2. **Clone the Project**:
