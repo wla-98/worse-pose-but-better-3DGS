@@ -30,7 +30,9 @@ To set up the environment for this project, you need to install several componen
 - **Link**: [https://github.com/muskie82/MonoGS](https://github.com/muskie82/MonoGS)
 - **Description**: The MONOGS project implements a dense SLAM system based on 3D Gaussian Splatting, which won the highlight and best demo award at CVPR 2024. It for the first time demonstrates a monocular SLAM method solely relying on 3D Gaussian Splatting, mainly utilizing the gradient propagation with camera poses.
 
-Please follow the installation guides provided by each respective link carefully to ensure a smooth setup of the project environment. Also, note that we are using Eigen 3.1.0 within the project, and its proper installation and compatibility with other libraries are assumed during the setup process.
+**Recommendation**: 
+The project has been developed and tested in a specific environment setup. We are using Windows 11 with WSL2 running Ubuntu 20.04 as the base Linux environment. ROS-noetic is an integral part of our system, which conveniently provides useful libraries such as OpenCV 4.2.0, PCL 1.10, and Boost out-of-the-box. Eigen 3.1.0 is another key library utilized in our project. For efficient management of Python libraries and to ensure compatibility with other components, we recommend creating an Anaconda environment following the `environment.yaml` file in the MONOGS project. Also, CUDA-TOOLKIT 11.8 is essential for taking advantage of GPU acceleration in relevant parts of our project. Sticking to these specific environment and library versions can help minimize potential compatibility issues and ensure the smooth running of the project. However, if you do decide to use different versions, be aware that you may encounter difficulties and might need to perform additional configuration and debugging to make the project work as expected.
+
 
 ## Usage
 ### ORB-SLAM INITIALIZATION
