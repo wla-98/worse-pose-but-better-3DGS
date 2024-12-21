@@ -32,3 +32,4 @@ gaussian-splatting-pose/submodules/fused-ssim/build/
 gaussian-splatting-pose/submodules/fused-ssim/fused_ssim.egg-info
 gaussian-splatting-pose/submodules/simple-knn/build/
 gaussian-splatting-pose/submodules/simple-knn/simple_knn.egg-info
+orb-output/
