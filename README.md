@@ -1,5 +1,7 @@
 # Worse-Pose-but-Better-3DGS
 
+[Project](https://731875679.github.io/wla_orb/)
+
 ## Project Overview
 This project, titled "Worse-Pose-but-Better-3DGS", is designed to [Describe in detail the core objective or main function here. For instance, it focuses on leveraging specific algorithms or techniques to reconstruct a more accurate and detailed 3D geometric structure even when dealing with input data having relatively poor poses. The methodology might involve advanced image processing, pose estimation refinement, or other innovative approaches.]
 
@@ -46,3 +48,22 @@ The project has been developed and tested in a specific environment setup. We ar
       
 
 2. **Clone the Project**:
+    - Navigate into the `src` folder within the newly created ROS workspace:
+      ```bash
+      cd “my_ros_ws”/src
+    - Then, clone the `Worse-Pose-but-Better-3DGS` project repository using the following `git` command:
+      ```bash
+      git clone https://github.com/wla-98/worse-pose-but-better-3DGS.git
+    - After cloning the project, move back to the root directory of the ROSWorkspace:
+      ```bash
+      cd..
+      catkin_make
+    - Once the build process is completed successfully, you need to source theWorkspace to make the ROS packages and executables available in your current terminal session. Run the following command:
+        ```bash
+        source devel/setup.bash
+
+3. **Example of Running with TUM Dataset (desk):**
+    - To run the project using the `TUM` dataset, specifically the desk sequence, you can use the following `rosrun` command. Replace the paths with the actual paths on your system if they are different:
+        ```bash
+        rosrun wla_orb ros_mono src/wla_orb/Vocabulary/ORBvoc.txt src/wla_orb/config/TUM1.yaml
+    - This will start the ORB-SLAM initialization process with the specified vocabulary file and configuration file for the desk sequence of the TUM dataset. The system will then attempt to reconstruct the 3D geometric structure based on the input data from the dataset, leveraging the algorithms and techniques implemented in our Worse-Pose-but-Better-3DGS project. You can observe the progress and results in the terminal output, and depending on the implementation, there may also be visualizations or saved files generated for further analysis.
