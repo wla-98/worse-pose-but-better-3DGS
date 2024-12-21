@@ -12,38 +12,32 @@ To set up the environment for this project, you need to install several componen
 
 ### Anaconda
 - **Link**: [https://docs.anaconda.com/anaconda/install/](https://docs.anaconda.com/anaconda/install/)
-- **Description**: Anaconda is a popular platform for managing Python environments and packages. Use the installation guide on the provided link to install Anaconda on your system. It will help you create isolated environments for our project and manage the necessary Python libraries efficiently.
+- **Description**: Anaconda is a popular platform for managing Python environments and packages. It is recommended to follow the installation guide on the provided link to install Anaconda on your system. Additionally, for this project, it is advisable to create an Anaconda environment based on the `environment.yaml` file in the MONOGS project (https://github.com/muskie82/MonoGS) to manage the necessary Python libraries efficiently and ensure compatibility with other components of our project.
 
 ### ROS-noetic
 - **Link**: [https://wiki.ros.org/noetic#Installation](https://wiki.ros.org/noetic#Installation)
-- **Description**: The Robot Operating System (ROS) in its noetic version is an essential part of our project for handling robotic-related tasks, such as sensor data processing, robot control, and more. Refer to the ROS wiki link for detailed installation instructions to get ROS-noetic up and running on your system.
+- **Description**: The Robot Operating System (ROS) in its noetic version is an essential part of our project for handling robotic-related tasks, such as sensor data processing, robot control, and more. Refer to the ROS wiki link for detailed installation instructions to get ROS-noetic up and running on your system. Note that ROS-noetic comes with libraries like OpenCV 4.2.0, PCL, Boost, etc., which are utilized within our project's framework.
 
 ### ORBSLAM3
 - **Link**: [https://github.com/UZ-SLAMLab/ORB_SLAM3](https://github.com/UZ-SLAMLab/ORB_SLAM3)
 - **Description**: ORB_SLAM3 is a state-of-the-art Simultaneous Localization and Mapping (SLAM) library. It plays a significant role in our project for tasks like mapping the environment and localizing within it. Visit the GitHub page to learn about its installation process, which may involve cloning the repository, installing dependencies, and compiling the code.
 
+### CUDA 11.8
+- **Link**: [https://developer.nvidia.com/cuda-11-8-0-download-archive?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local](https://developer.nvidia.com/cuda-11-8-0-download-archive?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local)
+- **Description**: CUDA 11.8 is required for leveraging the GPU computing capabilities in our project. Follow the instructions on the provided NVIDIA developer website to download and install CUDA 11.8 on your WSL2 (Ubuntu 20.04) environment. Make sure to select the appropriate options based on your system configuration (targeting Linux, x86_64 architecture, WSL-Ubuntu distribution, version 2.0, and deb_local as the target type).
+
 ### MONOGS
 - **Link**: [https://github.com/muskie82/MonoGS](https://github.com/muskie82/MonoGS)
 - **Description**: The MONOGS project implements a dense SLAM system based on 3D Gaussian Splatting, which won the highlight and best demo award at CVPR 2024. It for the first time demonstrates a monocular SLAM method solely relying on 3D Gaussian Splatting, mainly utilizing the gradient propagation with camera poses.
 
-Please follow the installation guides provided by each respective link carefully to ensure a smooth setup of the project environment.
+Please follow the installation guides provided by each respective link carefully to ensure a smooth setup of the project environment. Also, note that we are using Eigen 3.1.0 within the project, and its proper installation and compatibility with other libraries are assumed during the setup process.
 
 ## Usage
-[Describe here how to use the project once the installation is completed. For example, mention the main scripts or commands to run, any input data requirements, and what kind of output can be expected.]
-
-## Troubleshooting
-- **Common Installation Issues**:
-    - **Network Problems**: If you encounter issues while downloading packages during the installation process due to network connectivity problems, make sure your internet connection is stable. You may also consider using mirrors or alternative download sources if available for the specific software you are installing.
-    - **Dependency Conflicts**: In case of errors related to missing or incompatible dependencies, double-check the version requirements specified in the installation guides of each component. Try reinstalling or updating the relevant dependencies to match the required versions.
-- **Runtime Issues**:
-    - [List and describe other potential issues that might occur when running the project and suggest possible solutions or workarounds.]
-
-## Contribution
-We welcome contributions to this project! If you have ideas for improvement, bug fixes, or new features, please follow these steps:
-1. Fork the project on GitHub.
-2. Create a new branch for your changes.
-3. Make your modifications and commit them with descriptive commit messages.
-4. Push your changes to your forked repository.
-5. Open a pull request in the main project repository, explaining the changes you've made and why they are beneficial.
-
-We look forward to your contributions and hope this project can be continuously improved with the help of the community.
+### ORB-SLAM INITIALIZATION
+1. **Create a ROS Workspace**:
+    - Open your terminal in the WSL2 (Ubuntu 20.04) environment.
+    - Create a new directory for your ROS workspace (you can choose any name you prefer, here we'll use `my_ros_ws` as an example). Run the following command:
+      ```bash
+      mkdir -p "my_ros_ws"/src
+      cd "my_ros_ws"
+      catkin init
