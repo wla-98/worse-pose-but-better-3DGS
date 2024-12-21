@@ -135,8 +135,8 @@ int main(int argc, char** argv) {
     string currentTime = ss.str();
 
     // Save camera trajectory
-    string directoryName = "./src/wla_orb/orb-output/" + currentTime + "/sparse/0";
-    string imagesDirectory = "./src/wla_orb/orb-output/" + currentTime + "/images";
+    string directoryName = "orb-output/" + currentTime + "/sparse/0";
+    string imagesDirectory = "orb-output/" + currentTime + "/images";
 
     // Create the necessary directory
     if (!createDirectoryWithBoost(directoryName)) {
@@ -153,7 +153,6 @@ int main(int argc, char** argv) {
 
     // Check and create necessary files
     vector<string> filenames = {
-        directoryName + "/KeyFrameTrajectory.txt",
         directoryName + "/cameras.txt",
         directoryName + "/images.txt",
         directoryName + "/points3D.txt"
@@ -167,7 +166,6 @@ int main(int argc, char** argv) {
         }
     }
 
-    SLAM.SaveKeyFrameTrajectoryTUM(directoryName + "/KeyFrameTrajectory.txt");
     SLAM.SaveKeyPointsAndMapPoints(directoryName + "/images.txt");
     if (!SaveCameraParametersToFile(argv[2], directoryName + "/cameras.txt")) {
         cerr << "Error: Failed to save camera parameters" << endl;
