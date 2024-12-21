@@ -25,3 +25,10 @@ orb-output/
 Thirdparty/DBoW2/build/
 Thirdparty/g2o/build/
 Thirdparty/Sophus/build/
+gaussian-splatting-pose/submodules/diff-gaussian-rasterization/build/
+gaussian-splatting-pose/submodules/diff-gaussian-rasterization/diff_gaussian_rasterization.egg-info
+gaussian-splatting-pose/submodules/diff-gaussian-rasterization/dist/
+gaussian-splatting-pose/submodules/fused-ssim/build/
+gaussian-splatting-pose/submodules/fused-ssim/fused_ssim.egg-info
+gaussian-splatting-pose/submodules/simple-knn/build/
+gaussian-splatting-pose/submodules/simple-knn/simple_knn.egg-info
