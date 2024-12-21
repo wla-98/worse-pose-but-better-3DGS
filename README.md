@@ -1,5 +1,4 @@
 # Worse-Pose-but-Better-3DGS
-<<<<<<< HEAD
 
 [Project](https://wla-98.github.io/worse-pose-but-better-3DGS/)
 
