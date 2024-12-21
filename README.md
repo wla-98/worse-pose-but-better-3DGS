@@ -1,6 +1,6 @@
 # Worse-Pose-but-Better-3DGS
 
-[Project](https://731875679.github.io/wla_orb/)
+[Project](https://wla-98.github.io/worse-pose-but-better-3DGS/)
 
 ## Project Overview
 This project, titled "Worse-Pose-but-Better-3DGS", is designed to [Describe in detail the core objective or main function here. For instance, it focuses on leveraging specific algorithms or techniques to reconstruct a more accurate and detailed 3D geometric structure even when dealing with input data having relatively poor poses. The methodology might involve advanced image processing, pose estimation refinement, or other innovative approaches.]
