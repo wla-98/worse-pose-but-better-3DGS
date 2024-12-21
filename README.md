@@ -39,7 +39,9 @@ The project has been developed and tested in a specific environment setup. We ar
 
 <!-- insert the example video in this directory experiment-example.mp4-->
 [![Watch the video](https://youtu.be/erVag7vNiF4)](https://youtu.be/erVag7vNiF4)
-
+<video id="video" controls="" preload="none" poster="封面">
+      <source id="mp4" src="experiment-example.mp4" type="video/mp4">
+</videos>
 ## Usage
 ### ORB-SLAM INITIALIZATION
 1. **Create a ROS Workspace**:
