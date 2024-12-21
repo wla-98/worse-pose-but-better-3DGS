@@ -111,10 +111,10 @@ KEEP terminal in the work directory ```worse-pose-but-better-3DGS```
 2. **Running the Optimization**:
     - Once the conda environment is active and obtain the results from the ORB-SLAM initialization, you can run the optimization process with `train.py` under `gaussian-splatting-pose` using the following command:
         ```bash
-        /gaussian-splatting-pose/train.py -s orb-output/"CurrentTimeStamp" -m orb-output/"CurrentTimeStamp"/"Your Favorite Name"
+        python /gaussian-splatting-pose/train.py -s orb-output/"CurrentTimeStamp" -m orb-output/"CurrentTimeStamp"/"Your Favorite Name"
     - if you want to optimize with pose, you can use the following command:
         ```bash
-        /gaussian-splatting-pose/train-w-pose.py -s orb-output/"CurrentTimeStamp" -m orb-output/"CurrentTimeStamp"/"Your Favorite Name"
+        python /gaussian-splatting-pose/train-w-pose.py -s orb-output/"CurrentTimeStamp" -m orb-output/"CurrentTimeStamp"/"Your Favorite Name"
 After running the optimization process, you should see the optimized results in the specified output directory. 
 
 You can use the SIBRviewer to visualize the 3DGS model according to `Interactive Viewers Part` of https://github.com/graphdeco-inria/gaussian-splatting.
