@@ -48,7 +48,12 @@ def convert_images_to_keyframe(input_path, output_path):
 # input_file = '/home/wang/project/gaussian-splatting-pose/camera_poses_init.txt'
 # output_file = '/home/wang/project/gaussian-splatting-pose/camera_poses_init_evo.txt'
 
-input_file = '/home/wang/catkin_ws/src/3dgs-dataset/tank-family/camera_poses_final.txt'
-output_file = '/home/wang/catkin_ws/src/3dgs-dataset/tank-family/camera_poses_final_evo.txt'
-convert_images_to_keyframe(input_file, output_file)
-print(f"Conversion completed! Keyframe data saved to {output_file}")
+input_file1 = '/home/wang/catkin_ws/src/3dgs-dataset/kitti/camera_poses_final.txt'
+output_file1 = '/home/wang/catkin_ws/src/3dgs-dataset/kitti/camera_poses_final_evo.txt'
+convert_images_to_keyframe(input_file1, output_file1)
+print(f"Conversion completed! Keyframe data saved to {output_file1}")
+
+input_file2 = '/home/wang/catkin_ws/src/3dgs-dataset/kitti/camera_poses_init.txt'
+output_file2 = '/home/wang/catkin_ws/src/3dgs-dataset/kitti/camera_poses_init_evo.txt'
+convert_images_to_keyframe(input_file2, output_file2)
+print(f"Conversion completed! Keyframe data saved to {output_file2}")

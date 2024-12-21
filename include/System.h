@@ -175,7 +175,7 @@ public:
     void GeneratePointIDMap();// wanglian
     void SaveKeyPointsAndMapPoints(const string &filename);// wanglian
     void SavePointcloud(const string &filename);// wanglian
-    void SavePointcloudFromKeyframes(const std::string &filename);
+    void SavePointcloudFromKeyframes(const std::string &filename, const std::string &filename2);// wanglian
     float CalculateReprojectionErrorForMapPoint(MapPoint* pMP);// wanglian
     void SavePointIDMapToFile(const std::string& filename);//wanglian
 

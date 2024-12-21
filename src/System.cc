@@ -759,6 +759,8 @@ void System::SavePointcloud(const string &filename) {
                     auto it = mpTracker->mnIdToBGRMap.find(pKF->mnFrameId);
                     if (it != mpTracker->mnIdToBGRMap.end()) {
                         cv::Mat bgrImage = it->second; // RGB image of the KeyFrame
+                        // save bgrImage naming with mTimeStamp
+
                         if (!bgrImage.empty() && bgrImage.rows > v && bgrImage.cols > u ) {
                             // Extract the RGB value at the (u, v) coordinate
                             color = bgrImage.at<cv::Vec3b>(v, u);
@@ -785,7 +787,7 @@ void System::SavePointcloud(const string &filename) {
     cout << "Pointcloud saved to " << filename << endl;
 }
 
-void System::SavePointcloudFromKeyframes(const std::string &filename) {
+void System::SavePointcloudFromKeyframes(const std::string &filename, const std::string &imagesDirectory) {
     // Open the file for writing point cloud data
     ofstream outFile(filename.c_str());
     if (!outFile.is_open()) {
@@ -818,8 +820,16 @@ void System::SavePointcloudFromKeyframes(const std::string &filename) {
         }
 
         cv::Mat bgrImage = it->second;
-        const vector<MapPoint*>& vpMapPoints = pKF->GetMapPointMatches();
+        // Save bgrImage to file if not already saved
+        if (!bgrImage.empty()) {
+            string imageFilename = imagesDirectory + "/" + std::to_string(pKF->mTimeStamp) + ".png";
+            if (!cv::imwrite(imageFilename, bgrImage)) {
+                cerr << "Error: Failed to save image " << imageFilename << endl;
+            }
+        }        
 
+        const vector<MapPoint*>& vpMapPoints = pKF->GetMapPointMatches();
+        int ID = 1;
         for (size_t i = 0; i < vpMapPoints.size(); ++i) {
             MapPoint* pMP = vpMapPoints[i];
             if (pMP && !pMP->isBad()) {
@@ -838,11 +848,11 @@ void System::SavePointcloudFromKeyframes(const std::string &filename) {
                     cv::Vec3b color = bgrImage.at<cv::Vec3b>(v, u);
 
                     // Write the 3D point and color to the file
-                    outFile << std::setprecision(20) <<" "<< pos.x << " " << pos.y << " " << pos.z << " "
+                    outFile << std::setprecision(20) << ID <<" "<< pos.x << " " << pos.y << " " << pos.z << " "
                             << static_cast<int>(color[2]) << " " // Red
                             << static_cast<int>(color[1]) << " " // Green
-                            << static_cast<int>(color[0]) << " " // Blue
-                            << endl;
+                            << static_cast<int>(color[0]) << " " << "0"<< " "  << "0" << " " <<"0" << endl;
+                    ID++;
                 }
             }
         }

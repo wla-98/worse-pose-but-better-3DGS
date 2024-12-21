@@ -5,6 +5,7 @@ project(wla_orb)
 IF(NOT CMAKE_BUILD_TYPE)
   SET(CMAKE_BUILD_TYPE Release)
 ENDIF()
+set(CMAKE_PREFIX_PATH "/opt/ros/noetic;/usr/lib/x86_64-linux-gnu/cmake/opencv4;/usr/lib/x86_64-linux-gnu/cmake/pcl")
 
 # 编译标志
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O3")
@@ -37,6 +38,14 @@ find_package(catkin REQUIRED COMPONENTS
   image_transport
 )
 
+# # 查找 yaml-cpp 库（假设使用的是动态库，若是静态库可相应调整查找方式）
+# find_package(YAML-CPP REQUIRED)
+
+# # 如果找到 yaml-cpp 库，将其包含路径添加到项目中（用于头文件查找）
+# if(YAML-CPP_FOUND)
+#     include_directories(${YAML-CPP_INCLUDE_DIRS})
+# endif(
+  
 find_package(Boost 1.71 REQUIRED)
 include_directories(${Boost_INCLUDE_DIRS})
 link_directories(${Boost_LIBRARY_DIRS})
@@ -142,7 +151,7 @@ catkin_package()
 # 添加 ros_mono 可执行文件
 add_executable(ros_mono scripts/ros_mono.cc)
 add_dependencies(ros_mono ORB_SLAM3)
-
+target_link_libraries(ros_mono ${YAML-CPP_LIBRARIES})
 target_link_libraries(ros_mono
   ${catkin_LIBRARIES}
   ${OpenCV_LIBS}

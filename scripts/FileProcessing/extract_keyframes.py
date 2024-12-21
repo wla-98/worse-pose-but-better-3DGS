@@ -2,9 +2,9 @@ import os
 import shutil
 
 # 文件路径和文件夹
-images_txt_path = "/home/wang/catkin_ws/src/3dgs-dataset/kitti/sparse/0/images.txt"  # 替换为 images.txt 文件路径
-source_folder = "/home/wang/catkin_ws/src/3dgs-dataset/kitti/images"
-destination_folder = "/home/wang/catkin_ws/src/3dgs-dataset/kitti/images-keyframes"
+images_txt_path = "/home/wla/worse-pose-better-3dgs/catkin_ws/src/3dgs-dataset/tum-fg1-desk/sparse/0/images.txt"  # 替换为 images.txt 文件路径
+source_folder = "/home/wla/worse-pose-better-3dgs/catkin_ws/src/3dgs-dataset/tum-fg1-desk/images"
+destination_folder = "/home/wla/worse-pose-better-3dgs/catkin_ws/src/3dgs-dataset/tum-fg1-desk/images-keyframes"
 
 # 创建目标文件夹（如果不存在）
 os.makedirs(destination_folder, exist_ok=True)

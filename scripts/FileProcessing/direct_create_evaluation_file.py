@@ -38,7 +38,7 @@ def convert_images_to_keyframe(input_path, output_path):
             outfile.write(f"{timestamp} {t_cw[0]:.8f} {t_cw[1]:.8f} {t_cw[2]:.8f} {q_cw[1]:.8f} {q_cw[2]:.8f} {q_cw[3]:.8f} {q_cw[0]:.8f}\n")
 
 # 使用示例
-input_file = '/home/wang/catkin_ws/src/3dgs-dataset/tum-fg2-desk-orb/sparse/0/images.txt'
-output_file = '/home/wang/catkin_ws/src/3dgs-dataset/tum-fg2-desk-orb/keyframe_test.txt'
+input_file = '/home/wang/catkin_ws/src/3dgs-dataset/kitti/sparse-colmap/0/images.txt'
+output_file = '/home/wang/catkin_ws/src/3dgs-dataset/kitti/colmap.txt'
 convert_images_to_keyframe(input_file, output_file)
 print(f"Conversion completed! Keyframe data saved to {output_file}")

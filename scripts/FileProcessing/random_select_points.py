@@ -22,6 +22,6 @@ def select_and_renumber(input_file_path, output_file_path):
 
 
 # 示例用法
-input_file_path = '/home/wang/catkin_ws/src/3dgs-dataset/tank-Caterpillar/sparse/0/points3D.txt'
-output_file_path = '/home/wang/catkin_ws/src/3dgs-dataset/tank-Caterpillar/sparse/0/points3D.txt'
+input_file_path = '/home/wang/catkin_ws/src/3dgs-dataset/tum-fg2-desk-orb/sparse/0/points3D.txt'
+output_file_path = '/home/wang/catkin_ws/src/3dgs-dataset/tum-fg2-desk-orb/sparse/0/points3D.txt'
 select_and_renumber(input_file_path, output_file_path)

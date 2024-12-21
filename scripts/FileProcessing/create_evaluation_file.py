@@ -65,10 +65,10 @@ def convert_images_to_keyframe(input_path, output_path):
             q_wc, t_wc = transform_tcw_to_twc(q_cw, t_cw)
 
             # 输出新的格式行
-            outfile.write(f"{timestamp} {t_wc[0]:.8f} {t_wc[1]:.8f} {t_wc[2]:.8f} {q_wc[1]:.8f} {q_wc[2]:.8f} {q_wc[3]:.8f} {q_wc[0]:.8f}\n")
+            outfile.write(f"{timestamp} {t_wc[0]} {t_wc[1]} {t_wc[2]} {q_wc[1]} {q_wc[2]} {q_wc[3]} {q_wc[0]}\n")
 
 # 使用示例
-input_file = '/home/wang/catkin_ws/src/3dgs-dataset/tank-family/sparse-colmap/0/images.txt'
-output_file = '/home/wang/catkin_ws/src/3dgs-dataset/tank-family/keyframe_colmap.txt'
+input_file = '/home/wang/catkin_ws/src/3dgs-dataset/kitti/sparse-colmap/0/images.txt'
+output_file = '/home/wang/catkin_ws/src/3dgs-dataset/kitti/colmap.txt'
 convert_images_to_keyframe(input_file, output_file)
 print(f"Conversion completed! Keyframe data saved to {output_file}")
