@@ -22,4 +22,6 @@ execute/
 3dgs-output/
 Vocabulary/ORBvoc.txt
 orb-output/
-Thirdparty/
+Thirdparty/DBoW2/build/
+Thirdparty/g2o/build/
+Thirdparty/Sophus/build/
