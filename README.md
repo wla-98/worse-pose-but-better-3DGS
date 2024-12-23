@@ -122,6 +122,43 @@ After running the optimization process, you should see the optimized results in 
 
 You can use the SIBRviewer to visualize the 3DGS model according to `Interactive Viewers Part` of https://github.com/graphdeco-inria/gaussian-splatting.
 
+### Camera Pose Estimation (Based on the evo Toolkit)
+
+#### Notes on Coordinate System Transformation
+It should be noted that in the systems we are dealing with, the coordinate system in which files are saved in COLMAP is different from that in ORBSLAM. Therefore, it is essential to pay attention to the coordinate system transformation before subsequent operations. Here, we provide a script for coordinate system conversion to ensure the accurate connection of data between different systems and the correctness of subsequent processing.
+
+#### Obtaining the File Output from the ORB-SLAM System
+Before using the evo toolkit for camera pose estimation, you need to obtain the file output from the ORB-SLAM system. The output files include the camera poses and the corresponding image information. The file structure should be organized as follows:
+
+
+```
+orb-output
+├── "CurrentTimeStamp"
+│   ├── images
+│   │   ├── "Timestamp".png
+│   ├── sparse
+│   │   ├── 0
+│   │   │   ├── cameras.txt
+│   │   │   ├── images.txt
+│   │   │   ├── points3D.txt
+```
+
+#### Converting to the TUM Format Corresponding to the evo Toolkit
+To further carry out camera pose estimation related work using the evo toolkit, we need to convert the existing file format to the TUM format corresponding to the evo toolkit.
+
+The specific operation is to use the script `scripts\FileProcessing\create_evaluation_file.py` to achieve this conversion. However, when using this script, you need to modify the file directory in the script accordingly and accurately select the file path `"CurrentTimeStamp"\sparse\0\images.txt` as the input. Then, run the following command in the command line:
+
+    ```bash
+    python scripts\FileProcessing\create_evaluation_file.py
+
+Before using the evo toolkit, you need to install it first. The installation can be completed by using the pip command. Execute the following command in the command line:
+
+    ```bash
+    pip install evo --upgrade --no-binary evo
+
+#### Usage of the evo Toolkit
+For detailed usage of the evo toolkit, you can refer to the documentation provided in its official GitHub repository. The link is as follows: https://github.com/MichaelGrupp/evo. On this GitHub page, it covers detailed introductions to various functions of the evo toolkit, the meanings of different parameters, and usage examples, etc., which can help you proficiently use evo for data analysis, comparison, and visualization related to camera pose estimation.
+
 ### Acknowledgements
 We would like to express our gratitude to the developers and researchers who have contributed to the various libraries, tools, and resources used in this project. Special thanks to the creators of ORB-SLAM3, 3DGS, MONOGS, and other related projects that have provided valuable insights and functionalities for our work. We also appreciate the support from the open-source community and the academic institutions that have made their datasets and research findings publicly available, enabling us to explore and experiment with innovative solutions in the field of 3D geometric structure reconstruction.
 
