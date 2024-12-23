@@ -147,16 +147,14 @@ orb-output
 #### Converting to the TUM Format Corresponding to the evo Toolkit
 To further carry out camera pose estimation related work using the evo toolkit, we need to convert the existing file format to the TUM format corresponding to the evo toolkit.
 
-The specific operation is to use the script `scripts\FileProcessing\create_evaluation_file.py` to achieve this conversion. However, when using this script, you need to modify the file directory in the script accordingly and accurately select the file path `"CurrentTimeStamp"\sparse\0\images.txt` as the input. Then, run the following command in the command line:
+- The specific operation is to use the script `scripts\FileProcessing\create_evaluation_file.py` to achieve this conversion. However, when using this script, you need to modify the file directory in the script accordingly and accurately select the file path `"CurrentTimeStamp"\sparse\0\images.txt` as the input. Then, run the following command in the command line:
 
     ```bash
     python scripts\FileProcessing\create_evaluation_file.py
-
-Before using the evo toolkit, you need to install it first. The installation can be completed by using the pip command. Execute the following command in the command line:
+- Before using the evo toolkit, you need to install it first. The installation can be completed by using the pip command. Execute the following command in the command line:
 
     ```bash
     pip install evo --upgrade --no-binary evo
-
 #### Usage of the evo Toolkit
 For detailed usage of the evo toolkit, you can refer to the documentation provided in its official GitHub repository. The link is as follows: https://github.com/MichaelGrupp/evo. On this GitHub page, it covers detailed introductions to various functions of the evo toolkit, the meanings of different parameters, and usage examples, etc., which can help you proficiently use evo for data analysis, comparison, and visualization related to camera pose estimation.
 
