@@ -823,6 +823,8 @@ void System::SavePointcloudFromKeyframes(const std::string &filename, const std:
         // Save bgrImage to file if not already saved
         if (!bgrImage.empty()) {
             string imageFilename = imagesDirectory + "/" + std::to_string(pKF->mTimeStamp) + ".png";
+            // convert rgbtobgr image
+            cv::cvtColor(bgrImage, bgrImage, CV_BGR2RGB);
             if (!cv::imwrite(imageFilename, bgrImage)) {
                 cerr << "Error: Failed to save image " << imageFilename << endl;
             }
