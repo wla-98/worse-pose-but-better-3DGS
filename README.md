@@ -63,7 +63,7 @@ The project has been developed and tested in a specific environment setup. We ar
         cd ..
     - Initial install the 3rdparty libraries and run the following command to build the ROS packages in the workspace:
         ```bash
-        sh src/wla_orb/build_3rdparty.sh    
+        sh src/worse-pose-but-better-3DGS/build_3rdparty.sh    
         catkin_make
     - Once the build process is completed successfully, you need to source theWorkspace to make the ROS packages and executables available in your current terminal session. Run the following command:
         ```bash
@@ -76,17 +76,18 @@ The project has been developed and tested in a specific environment setup. We ar
         roscore
     - To run the project using the `TUM` dataset, specifically the desk sequence, you can use the following `rosrun` command. Replace the paths with the actual paths on your system if they are different:
         ```bash
-        rosrun wla_orb ros_mono src/wla_orb/Vocabulary/ORBvoc.txt src/wla_orb/config/TUM3.yaml
+        cd src/worse-pose-but-better-3DGS
+        rosrun wla_orb ros_mono Vocabulary/ORBvoc.txt config/TUM3.yaml
     - This will start the ORB-SLAM initialization process with the specified vocabulary file and configuration file for the desk sequence of the TUM dataset. This will pop up two GUIs. One subscribes to the image information in the ROSBAG, and the other will display the key frames and the sparse point cloud map in real time.
     - Open the rosbag file in another terminal:
 
         New Terminal
         - Download the rosbag file from the TUM dataset website (https://cvg.cit.tum.de/data/datasets/rgbd-dataset/download) and place it in the `dataset` folder of the project.
             ```bash
-            wget https://cvg.cit.tum.de/rgbd/dataset/freiburg3/rgbd_dataset_freiburg3_long_office_household.bag -P src/wla_orb/dataset
+            wget https://cvg.cit.tum.de/rgbd/dataset/freiburg3/rgbd_dataset_freiburg3_long_office_household.bag -P dataset
         - Run the following command to play the rosbag file:
             ```bash
-            rosbag play src/wla_orb/dataset/rgbd_dataset_freiburg1_desk.bag /camera/rgb/image_color:=/camera/image_raw
+            rosbag play dataset/rgbd_dataset_freiburg3_long_office_household.bag /camera/rgb/image_color:=/camera/image_raw
     - The ORB-SLAM system will start processing the data from the rosbag file and display the key frames and the sparse point cloud map in real time.
     - After following these steps, you should have the necessary components set up to run the ORB-SLAM initialization process with the TUM dataset and you will be able to observe the results in orb-output folder. The structure of the orb-output folder will be as follows like COLMAP results:
 
@@ -115,13 +116,14 @@ KEEP terminal in the work directory ```worse-pose-but-better-3DGS```
 2. **Running the Optimization**:
     - Once the conda environment is active and obtain the results from the ORB-SLAM initialization, you can run the optimization process with `train.py` under `gaussian-splatting-pose` using the following command:
         ```bash
+        cd src/worse-pose-but-better-3DGS
         python gaussian-splatting-pose/train.py -s orb-output/"CurrentTimeStamp" -m orb-output/"CurrentTimeStamp"/"Your Favorite Name"
     - if you want to optimize with pose, you can use the following command:
         ```bash
         python gaussian-splatting-pose/train-w-pose.py -s orb-output/"CurrentTimeStamp" -m orb-output/"CurrentTimeStamp"/"Your Favorite Name"
 After running the optimization process, you should see the optimized results in the specified output directory. 
 
-You can use the SIBRviewer to visualize the 3DGS model according to `Interactive Viewers Part` of https://github.com/graphdeco-inria/gaussian-splatting.
+You can use the SIBRviewer to visualize the 3DGS model according to ***Interactive Viewers*** Part of https://github.com/graphdeco-inria/gaussian-splatting.
 
 ### Camera Pose Estimation (Based on the evo Toolkit)
 
