@@ -1,11 +1,18 @@
 # Worse-Pose-but-Better-3DGS
 
-## [[Project]](https://wla-98.github.io/worse-pose-but-better-3DGS/) |  [[Arxiv]](https://wla-98.github.io/worse-pose-but-better-3DGS/)
+<!-- ## [[Project]](https://wla-98.github.io/worse-pose-but-better-3DGS/) |  [[Arxiv]](https://wla-98.github.io/worse-pose-but-better-3DGS/) -->
 
 ## Project Overview
 1. It aims to replace the COLMAP initialization process used in traditional 3DGS. By leveraging efficient algorithms and technical architectures, it significantly reduces the time cost from the startup to the completion of the 3DGS system construction, enabling the rapid acquisition of the final dense map. During this process, it makes full use of the technical advantages of ORB - SLAM to accurately capture input image information and obtain accurate camera poses, laying a solid foundation for the subsequent reconstruction steps and making the entire 3D construction process more smooth and efficient.
 
 2. It focuses on optimizing the camera pose stage. By introducing cutting - edge optimization algorithms and intelligent strategies, it conducts iterative adjustments on the initial camera poses. Through continuous comparison between the reconstructed model and the original image data, it precisely corrects pose deviations, thus obtaining higher - quality 3DGS reconstruction results. This ensures that the final generated 3D geometric structures reach a higher standard in terms of detail reproduction and spatial accuracy, meeting diverse application requirements.
+
+
+## Results
+![Horse](horse.png)
+![Family](family.jpg)
+![Caterpillar](caterpillar.jpg)
+![Floor](floor.jpg)
 
 ## Installation Instructions
 To set up the environment for this project, you need to install several components. Here are the links and brief descriptions for each of them:
