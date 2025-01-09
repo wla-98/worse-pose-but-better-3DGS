@@ -9,10 +9,10 @@
 
 
 ## Results
-![Horse](horse.png)
-![Family](family.jpg)
-![Caterpillar](caterpillar.jpg)
-![Floor](floor.jpg)
+![Horse](resource/horse.png)
+![Family](resource/family.jpg)
+![Caterpillar](resource/caterpillar.jpg)
+![Floor](resource/floor.jpg)
 
 ## Installation Instructions
 To set up the environment for this project, you need to install several components. Here are the links and brief descriptions for each of them:
@@ -47,7 +47,7 @@ The project has been developed and tested in a specific environment setup. We ar
 <!-- insert the example video in this directory experiment-example.mp4-->
 
 ## click the image to see the experiment video
-[![Video cover](experiment.png)](https://youtu.be/erVag7vNiF4)
+[![Video cover](resource/experiment.png)](https://youtu.be/erVag7vNiF4)
 
 ## Usage
 ### ORB-SLAM INITIALIZATION
